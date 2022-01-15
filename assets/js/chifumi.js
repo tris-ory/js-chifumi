@@ -64,39 +64,32 @@ function initPlay() {
 
 // compare(choice1, choice2)
 // Compare selected values from chifumi
-// Return :
-//      1 if choice1 is better than choice2
-//      0 if choice1 is the same than choice2
-//     -1 in other case
+// Return the winning play if exist, "égalité" else
 
-function compare(choice1, choice2) {
-    if (choice1 === "pierre") {
-        if (choice2 === "pierre") {
-            return 0;
-        } else if (choice2 === "feuille") {
-            return -1;
-        } else if (choice2 === "ciseaux") {
-            return 1;
+function compare(choice1, choice2){
+    var result = "";
+    if (choice1 === choice2){
+        result="egalite";
+    } else if (choice1 === "pierre" ) {
+        if (choice2 === "feuille"){
+            result=choice2;
+        } else {
+            result=choice1;
         }
     } else if (choice1 === "feuille") {
-        if (choice2 === "pierre") {
-            return 1;
-        } else if (choice2 === "feuille") {
-            return 0;
-        } else if (choice2 === "ciseaux") {
-            return -1;
+        if (choice2 === "ciseaux"){
+            result=choice2;
+        } else {
+            result=choice1;
         }
-    } else if (choice1 === "ciseaux") {
-        if (choice2 === "pierre") {
-            return -1;
-        } else if (choice2 === "feuille") {
-            return 1;
-        } else if (choice2 === "ciseaux") {
-            return 0;
+    } else {
+        if (choice2 === "pierre"){
+            result=choice2;
+        } else {
+            result=choice1;
         }
     }
-
-    console.log("Erreur ! au moins un des paramètres est invalide !");
+    return result;
 }
 
 // Return random play for robot
@@ -109,11 +102,12 @@ function playRound(playerChoice) {
     roundCount++;
     robotChoice = robotPlay();
     var roundResult = compare(playerChoice, robotChoice);
-    if (roundResult > 0) {
+    if (roundResult === playerChoice) {
         playerScore++;
-    } else if (roundResult < 0) {
+    } else if (roundResult === robotChoice) {
         robotScore++;
     }
+    
     // Print new scores
     domPlayerScore.innerHTML = playerScore;
     domRobotScore.innerHTML = robotScore;
