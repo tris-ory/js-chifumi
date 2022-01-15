@@ -1,2 +1,2 @@
-"# js-chifumi" 
-"# js-chifumi" 
+# js-chifumi
+HTML/CSS/JS scholar project
