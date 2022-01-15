@@ -1,0 +1,43 @@
+@font-face {
+    font-family: Ninja;
+    src: url("../fonts/aAsianNinja.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+h1{
+    font-family: 'ninja', decorative;
+}
+
+h1,h2,h3 {
+    margin: 1em;
+}
+
+.player {
+    width: 49%;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+img[alt="Ordinateur"] {
+    width:33%;
+}
+
+#playerPlay, #robotPlay, #endGame {
+    min-height: 1rem;
+    margin: .25rem;
+}
