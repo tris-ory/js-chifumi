@@ -16,8 +16,9 @@ var btnSheet = document.getElementById("feuille");
 var btnScissors = document.getElementById("ciseaux");
 var btnReset = document.getElementById("reset");
 
-var domPlayerScore = document.getElementById("playerScore");
-var domRobotScore = document.getElementById("robotScore");
+var h2PlayerName = document.getElementById("playerName");
+var h3PlayerScore = document.getElementById("playerScore");
+var h3RobotScore = document.getElementById("robotScore");
 var divEndGame = document.getElementById("endGame");
 
 var pPlayerPlay = document.getElementById("playerPlay");
@@ -49,11 +50,9 @@ btnReset.addEventListener("click", function (event) {
 
 // If we want to play another game
 // Restore initial values for var and DOM selectors
-// TODO : Add a prompt for reading player name. Put it in #playerName
-//  syntax : prompt(message[, defaultValue]);
 function initPlay() {
-    domPlayerScore.innerHTML = 0;
-    domRobotScore.innerHTML = 0;
+    h3PlayerScore.innerHTML = 0;
+    h3RobotScore.innerHTML = 0;
     divEndGame.innerHTML = "";
     pPlayerPlay.innerHTML = "";
     pRobotPlay.innerHTML = "";
@@ -62,8 +61,18 @@ function initPlay() {
     robotChoice = "";
     playerScore = 0;
     robotScore = 0;
+    initPlayerName();
 }
 
+// Get the new name of the player
+function initPlayerName() {
+    var currentName = h2PlayerName.innerHTML;
+    var newName = prompt("Entrez votre nom", currentName);
+    // if the value is a string and is not empty, change the name
+    if ((typeof newName === "string" || newName instanceof String) && (newName != "")) {
+        h2PlayerName.innerHTML = newName;
+    }
+}
 // compare(choice1, choice2)
 // Compare selected values from chifumi
 // Return the winning play if exist, "égalité" else
@@ -110,8 +119,8 @@ function playRound(playerChoice) {
     }
 
     // Print new scores
-    domPlayerScore.innerHTML = playerScore;
-    domRobotScore.innerHTML = robotScore;
+    h3PlayerScore.innerHTML = playerScore;
+    h3RobotScore.innerHTML = robotScore;
     // and last played
     pPlayerPlay.innerHTML = "Vous avez joué " + playerChoice;
     pRobotPlay.innerHTML = "Le robot a joué " + robotChoice;
@@ -128,3 +137,5 @@ function playRound(playerChoice) {
         divEndGame.innerHTML = msg;
     }
 }
+
+initPlay();
