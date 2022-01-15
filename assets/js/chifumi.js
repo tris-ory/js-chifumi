@@ -49,6 +49,8 @@ btnReset.addEventListener("click", function (event) {
 
 // If we want to play another game
 // Restore initial values for var and DOM selectors
+// TODO : Add a prompt for reading player name. Put it in #playerName
+//  syntax : prompt(message[, defaultValue]);
 function initPlay() {
     domPlayerScore.innerHTML = 0;
     domRobotScore.innerHTML = 0;
@@ -65,28 +67,27 @@ function initPlay() {
 // compare(choice1, choice2)
 // Compare selected values from chifumi
 // Return the winning play if exist, "égalité" else
-
-function compare(choice1, choice2){
+function compare(choice1, choice2) {
     var result = "";
-    if (choice1 === choice2){
-        result="egalite";
-    } else if (choice1 === "pierre" ) {
-        if (choice2 === "feuille"){
-            result=choice2;
+    if (choice1 === choice2) {
+        result = "egalite";
+    } else if (choice1 === "pierre") {
+        if (choice2 === "feuille") {
+            result = choice2;
         } else {
-            result=choice1;
+            result = choice1;
         }
     } else if (choice1 === "feuille") {
-        if (choice2 === "ciseaux"){
-            result=choice2;
+        if (choice2 === "ciseaux") {
+            result = choice2;
         } else {
-            result=choice1;
+            result = choice1;
         }
     } else {
-        if (choice2 === "pierre"){
-            result=choice2;
+        if (choice2 === "pierre") {
+            result = choice2;
         } else {
-            result=choice1;
+            result = choice1;
         }
     }
     return result;
@@ -107,7 +108,7 @@ function playRound(playerChoice) {
     } else if (roundResult === robotChoice) {
         robotScore++;
     }
-    
+
     // Print new scores
     domPlayerScore.innerHTML = playerScore;
     domRobotScore.innerHTML = robotScore;

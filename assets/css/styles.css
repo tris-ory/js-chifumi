@@ -1,8 +1,14 @@
+/* 
+    font for the title of the page
+*/
 @font-face {
     font-family: Ninja;
     src: url("../fonts/aAsianNinja.ttf");
 }
 
+/*
+    Default parameters for the page
+*/
 * {
     margin: 0;
     padding: 0;
@@ -14,8 +20,12 @@
 .container{
     display: flex;
     flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
+/*
+    Page title use specific font
+*/
 h1{
     font-family: 'ninja', cursive;
 }
@@ -24,19 +34,31 @@ h1,h2,h3 {
     margin: 1em;
 }
 
+/*
+    Each player div use same horizontal space
+*/
 .player {
     width: 49%;
 }
 
+/*
+    Images use the max width avaible and resize height to maintain ratio
+*/
 img{
     width: 100%;
     height: auto;
 }
 
-img[alt="Ordinateur"] {
-    width:33%;
+/*
+    Image of "Ordinateur" and buttons use 30% width of their div
+*/
+img[alt="Ordinateur"], button {
+    width:30%;
 }
 
+/*
+    Game messages margins and height definition
+*/
 #playerPlay, #robotPlay, #endGame {
     min-height: 1rem;
     margin: .25rem;
