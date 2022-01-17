@@ -16,6 +16,10 @@
     flex-wrap: nowrap;
 }
 
+.container .container {
+    margin: .75rem;
+}
+
 h1{
     font-family: 'ninja', cursive;
 }
