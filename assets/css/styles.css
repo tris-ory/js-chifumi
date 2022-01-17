@@ -42,6 +42,6 @@ img[alt="Ordinateur"] {
 }
 
 #playerPlay, #robotPlay, #endGame {
-    min-height: 1rem;
-    margin: .25rem;
+    min-height: 1.5rem;
+    /* margin: .25rem; */
 }

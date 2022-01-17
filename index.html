@@ -13,8 +13,10 @@
     <h1>Bienvenue sur notre chi-fu-mi</h1>
     <div class="container">
         <div class="player">
-            <h2>Joueur</h2>
-            <h3 id="playerScore">0</h3>
+            <div>
+                <h2 id="playerName">Joueur</h2>
+                <h3 id="playerScore">0</h3>
+            </div>
             <!-- <div class="container">
                 <button id="pierre"><img src="assets/img/rock.png" alt="Pierre" /></button>
                 <button id="feuille"><img src="assets/img/paper.png" alt="Feuille" /></button>
@@ -26,17 +28,24 @@
                 <option value="1">Feuille</option>
                 <option value="2">Ciseaux</option>
             </select>
-            <p id="playerPlay"></p>
+            
         </div>
         <div class="player">
             <h2>Robot</h2>
             <h3 id="robotScore">0</h3>
             <img src="assets/img/computer.png" alt="Ordinateur" />
-            <p id="robotPlay"></p>
         </div>
     </div>
+    <div class="container">
+        <p id="playerPlay" class="player"></p>
+        <p id="robotPlay" class="player"></p>
+    </div>
     <div id="endGame"></div>
-    <button id="reset">Nouvelle partie</button>
+    <div>
+        <input type="checkbox" name="renamePlayer" id="renamePlayer"  checked />
+        <label for="renamePlayer"> Renommer le joueur&nbsp;?&nbsp;</label>
+        <button id="reset">Nouvelle partie</button>
+    </div>
 </body>
 <script src="assets/js/chifumi.js"></script>
 
