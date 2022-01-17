@@ -39,9 +39,17 @@ img{
 
 img[alt="Ordinateur"] {
     width:33%;
+    height: auto;
 }
 
 #playerPlay, #robotPlay, #endGame {
     min-height: 1.5rem;
     /* margin: .25rem; */
+}
+#startingContent {
+    flex-direction: column;
+}
+.oneLine {
+    display: block;
+    margin: .5rem auto;
 }

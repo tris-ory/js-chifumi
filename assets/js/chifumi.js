@@ -44,17 +44,17 @@ function initPlay() {
     playerScore = 0;
     robotScore = 0;
     if (cbRenamePlayer.checked) {
-        namePlayer();
-        cbRenamePlayer.checked = false;
+        namePlayer("Quel est votre nouveau nom ?");
     }
 }
 
-function namePlayer() {
+function namePlayer(msgName = "Bonjour ! Quel est votre nom ?") {
     var currentName = h2PlayerName.innerHTML;
-    var newName = prompt("Quel est votre nom ?", currentName);
+    var newName = prompt(msgName, currentName);
     if ((typeof newName === "string" || newName instanceof String) && newName != "") {
         h2PlayerName.innerText = newName;
     }
+    cbRenamePlayer.checked = false;
 }
 
 // Return random play for robot
@@ -84,20 +84,20 @@ function playRound(playerChoice) {
         roundCount++;
         robotChoice = robotPlay();
         var roundResult = compare(playerChoice, robotChoice);
-        if (roundResult != "égalité"){
-            
-        if (roundResult == playerChoice) {
-            playerScore++;
-        } else if (roundResult == robotChoice) {
-            robotScore++;
-        }
+        if (roundResult != "égalité") {
+
+            if (roundResult == playerChoice) {
+                playerScore++;
+            } else if (roundResult == robotChoice) {
+                robotScore++;
+            }
         }
         // Print new scores
-        h3PlayerScore.innerHTML = playerScore;
-        h3RobotScore.innerHTML = robotScore;
+        h3PlayerScore.innerText = playerScore;
+        h3RobotScore.innerText = robotScore;
         // and last played
-        pPlayerPlay.innerHTML = "Vous avez joué " + playList[playerChoice];
-        pRobotPlay.innerHTML = "Le robot a joué " + playList[robotChoice];
+        pPlayerPlay.innerText = "Vous avez joué " + playList[playerChoice];
+        pRobotPlay.innerText = "Le robot a joué " + playList[robotChoice];
         // After last round
         if (roundCount >= maxRounds) {
             var msg = "";
